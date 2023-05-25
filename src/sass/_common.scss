@@ -1,1 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+.main-button {
+    margin-top: 15px;
+
+    .btn {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: yellow;
+    }
+}
