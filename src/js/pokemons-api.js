@@ -6,6 +6,28 @@ export default class PokemonsApi {
         this.route = 'pokemon';
         this.limit = 10;
         this.offset = 0;
+        this.name = '';
+    }
+
+    getPokemonPhotoByName() {
+        const requestURL = `${this.baseURL}${this.route}/${this.name}`;
+
+        return axios.get(requestURL)
+        .then(response => {
+            if (response.status !== 200) {
+                throw new Error(response.status)
+            }
+            return response.data.sprites.other.dream_world.front_default
+        })
+    }
+
+    setPokemonName(newName) {
+        this.name = newName
+    }
+
+    setOffset() {
+        // this.offset = this.offset + 10;
+        this.offset += 10;
     }
 
     getAllPokemonsData() {
